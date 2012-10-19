@@ -280,28 +280,17 @@ h2{
   height: 300px;
   padding: 5px;
 }
-
-
 .container::before, .container::after {
   display: table; content: "";
 }
-
 .container::after {
   clear: both;
 }
-
-
 #sponsors {
   margin: 100px auto 50px;
   position: absolute;
   top: 40%;
-  background-color: white
-}
-#sponsors span {
-  width: 200px;
-  display: block;
-  float: left;
-  max-height: 120px;
-  margin-top: 10px;
-  overflow: hidden;
+  background-color: white;
+  height: 100px;
+  width: 800px;
 }
