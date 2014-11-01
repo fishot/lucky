@@ -43,7 +43,7 @@ var lucky = (function (){
   this.import_data = function(tickets) {
     db.transaction(function (tx) {
       for (i=0; i< tickets.length; i++)
-        tx.executeSql('INSERT INTO names (name, status) VALUES (?, 0)', [ tickets[i] ]);
+        tx.executeSql('REPLACE INTO names (name, status) VALUES (?, 0)', [ tickets[i] ]);
     });
   }
 
