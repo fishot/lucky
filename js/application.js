@@ -46,6 +46,7 @@ var lucky = (function (){
     db.transaction(function (tx) {
       tx.executeSql('SELECT * FROM names WHERE status = 1', [], function (tx, results) {
         var len = results.rows.length, i;
+        $('#lucky-count').text('(' + len + ')');
         for (i = 0; i < len; i++)
           $('#lucky-names').append('<li>'+results.rows.item(i).name+'</li>');
       });
