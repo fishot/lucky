@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Lucky</title>
+    <title>Lucky - PyCon China 2014</title>
 
     <link rel="stylesheet" type="text/css" href="stylesheets/application.css">
 
     <script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.cycle.min.js"></script>
     <script type="text/javascript" src="js/lib/rand.js"></script>
 
     <script type="text/javascript" src="js/application.js"></script>
@@ -21,7 +22,7 @@
           <!-- <a href="/" class="">Home</a>
           <a href="/about-us/" class="">About us</a> -->
         </nav>
-        <a class="main"><img src="http://pycon.b0.upaiyun.com/images/logo_s.png" />PyCon China 2012</a>
+        <a class="main"><img src="images/python-logo.png" />PyCon China 2014</a>
       </div>
     </div>
 
@@ -68,7 +69,11 @@
         <tbody></tbody>
       </table>
     </div>
-    <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
-    <script type="text/javascript">$(document).ready(function() { $('#sponsors').cycle({fx: 'fade',timeout:3000});});</script>
+    <script type="text/javascript">
+        $(document).ready(
+        function() {
+            $('#sponsors').cycle({fx: 'fade',timeout:1000});
+        });
+    </script>
   </body>
 </html>
