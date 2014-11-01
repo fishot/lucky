@@ -294,3 +294,54 @@ h2{
   height: 100px;
   width: 800px;
 }
+
+#lucky-confirm-name {
+    font-size: 80px;
+}
+
+/**** simplemodal ****/
+#simplemodal-container {
+    width: 300px;
+}
+
+#basic-modal-content {display:none;}
+#simplemodal-overlay { background-color:#000; }
+#simplemodal-container {
+    padding: 20px; 
+    background-color:#fcfcfc; 
+    border-radius:4px;
+    -moz-border-radius:4px;
+}
+#simplemodal-container a {font-weight:normal;}
+.modalCloseImg {
+    position:absolute;
+    width:28px;
+    height:28px;
+    background-position:0 -1173px;
+    cursor:pointer;
+    top:-14px;
+    right:-14px;
+    z-index:3200;
+}
+#simplemodal-container h3 {
+    font-size:1.5em;
+    word-wrap:break-word;
+    margin:0 0 4px;
+}
+#simplemodal-container h3,
+#simplemodal-container h4,
+#simplemodal-container label {
+    font-weight:bold;
+}
+#simplemodal-container label {
+    margin:8px 0 4px;
+}
+.simplemodal-close {
+    margin-left:5px;
+}
+#confirm-popup {
+    min-width:255px;
+}
+#confirm-popup .btn {
+    margin-top:.8em;
+}

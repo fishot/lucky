@@ -1,3 +1,22 @@
+var Status = {
+  // just a normal guy
+  NORMAL: 0,
+  // lucky guy
+  LUCKY: 1,
+  // lucky guy, but he has leaved
+  LUCKY_BUT_LEAVED: 2,
+};
+
+var status_to_string = function(status){
+  switch (status) {
+  case Status.NORMAL:
+    return '-';
+  case Status.LUCKY:
+    return '中奖';
+  case Status.LUCKY_BUT_LEAVED:
+    return '离开';
+  }
+}
 
 var lucky = (function (){
 
@@ -31,11 +50,11 @@ var lucky = (function (){
   this.showAllTickets = function(){
     $('#tickets').empty();
     db.transaction(function (tx) {
-      tx.executeSql('SELECT * FROM names', [], function (tx, results) {
+      tx.executeSql('SELECT * FROM names ORDER BY status ASC', [], function (tx, results) {
         var len = results.rows.length, i, ticket;
         for (i = 0; i < len; i++){
           ticket = results.rows.item(i);
-          $('#tickets').append('<tr><td>'+ticket.name+'</td><td>'+ticket.status+'</td></tr>');
+          $('#tickets').append('<tr><td>'+ticket.name+'</td><td>'+ status_to_string(ticket.status)+'</td></tr>');
         }
       });
     });
@@ -67,16 +86,26 @@ var lucky = (function (){
     this.intervalID = setInterval(this.rolling, this.speed);
   }
 
-  this.stopRolling = function(){
+  this.stopRolling = function() {
     clearInterval(this.intervalID);
 
+    var name = $('#random').text();
+
+    var status = Status.LUCKY;
+
+    $('#lucky-confirm-name').text(name);
+    $('#simplemodal-container').css({'height':'auto'});
+    $('#lucky-confirm-popup').modal({appendTo:'body'});
+  };
+  
+  this.setNameStatus = function(name, status) {
     db.transaction(function(tx) {
-      tx.executeSql("UPDATE names SET status=1 WHERE name = ?", [$('#random').text()], function (tx, results) {
+      tx.executeSql("UPDATE names SET status=? WHERE name = ?", [status, name], function (tx, results) {
         this.showLuckyNames();
         this.showAllTickets();
       });
     });
-  };
+  }
 
   return this;
 })();
@@ -126,7 +155,15 @@ $(function(){
       lucky.stopRolling();
     }
   );
+  
+  $('#lucky-confirm-yes').click(function(event) {
+    var name = $('#lucky-confirm-name').text();
+    lucky.setNameStatus(name, Status.LUCKY);
+  });
+
+  $('#lucky-confirm-no').click(function(event) {
+    var name = $('#lucky-confirm-name').text();
+    lucky.setNameStatus(name, Status.LUCKY_BUT_LEAVED);
+  });
 
 });
-
-
