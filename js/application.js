@@ -94,7 +94,7 @@ var lucky = (function (){
     var status = Status.LUCKY;
 
     $('#lucky-confirm-name').text(name);
-    $('#simplemodal-container').css({'height':'auto'});
+    $('#simplemodal-container').css({'height':'auto', 'width': 'auto'});
     $('#lucky-confirm-popup').modal({appendTo:'body'});
   };
   

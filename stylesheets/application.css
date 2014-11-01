@@ -296,12 +296,21 @@ h2{
 }
 
 #lucky-confirm-name {
-    font-size: 80px;
+    font-size: 40px;
+}
+
+#lucky-confirm-popup h3 {
+    padding: 10px;
+    line-height: 100px;
+}
+
+#lucky-confirm-popup .buttons {
+    float: right;
 }
 
 /**** simplemodal ****/
 #simplemodal-container {
-    width: 300px;
+    min-width: 500px;
 }
 
 #basic-modal-content {display:none;}
