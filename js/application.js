@@ -1,131 +1,84 @@
+ var data =  [ 'C001,123@gmail.com','C002,asd123@gmail.com','C003,7772@gmail.com','C004,asd123@gmail.com,','C005','C006,asd123@gmail.com','C007,asd123@gmail.com','C008','C009',"B001,asd123@gmail.com","B002","B003","B004,asd123@gmail.com","B005","B006",
+        "A001,123@gmail.com","A002,123@gmail.com","A003,asd123@gmail.com","A004,7772@gmail.com","A005","A006,asd123@gmail.com","A007","A008,asd123@gmail.com","A009","张三,asd123@gmail.com","李四,asd123@gmail.com","王五","孙六"]
 
-var lucky = (function (){
+var lucky = (function(){
 
-  this.speed = 50;
-  this.intervalID;
+    this.speed = 50;
+    this.intervalID;
+    this.localdata;
 
-  var db = openDatabase("lucky", "1.0", "lucky draw", 1000);
+    this.luckyindex = 0;
+    this.luckyname = "开始抽奖";
 
-  this.initDB = function() {
-    db.transaction(function(tx) {
-      tx.executeSql("CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY ASC, name TEXT unique, status INTEGER)");
-    });
-  }
+    this.init = function(data){
+        this.localdata = data
+        $("#lucky-name").text(this.luckyname);
 
-  this.clearDB = function(){
-    db.transaction(function(tx) {
-      tx.executeSql("DROP TABLE names", [], function(tx, results){
-        alert("Clear data success!");
-        this.initDB();
-      });
-    });
-  }
+        this._bindUI();
+    };
 
-  this.import_data = function(tickets) {
-    db.transaction(function (tx) {
-      for (i=0; i< tickets.length; i++)
-        tx.executeSql('INSERT INTO names (name, status) VALUES (?, 0)', [ tickets[i] ]);
-    });
-  }
+    this.rolling = function(){
 
-  this.showAllTickets = function(){
-    $('#tickets').empty();
-    db.transaction(function (tx) {
-      tx.executeSql('SELECT * FROM names', [], function (tx, results) {
-        var len = results.rows.length, i, ticket;
-        for (i = 0; i < len; i++){
-          ticket = results.rows.item(i);
-          $('#tickets').append('<tr><td>'+ticket.name+'</td><td>'+ticket.status+'</td></tr>');
-        }
-      });
-    });
-  }
+            var i = rand(this.localdata.length+1);
+            var name = this.localdata[i-1];
 
-  this.showLuckyNames = function(){
-    $('#lucky-names').empty();
-    db.transaction(function (tx) {
-      tx.executeSql('SELECT * FROM names WHERE status = 1', [], function (tx, results) {
-        var len = results.rows.length, i;
-        for (i = 0; i < len; i++)
-          $('#lucky-names').append('<li>'+results.rows.item(i).name+'</li>');
-      });
-    });
-  }
+            this.luckyindex = i-1;
+            this.luckyname = name;
 
-  this.rolling = function(){
-    db.transaction(function(tx) {
-      tx.executeSql('SELECT * FROM names WHERE status = 0', [], function (tx, results) {
-        var i = rand(results.rows.length+1);
-        var name = results.rows.item(i-1).name;
-        $('#random').text(name);
-      });
-    });
-  }
+            $("#lucky-name").text(name);
+    };
 
-  this.startRolling = function(){
-    this.intervalID = setInterval(this.rolling, this.speed);
-  }
+    this.startRolling = function(){
+        
+        this.intervalID = setInterval(this.rolling, this.speed);
+    };
 
-  this.stopRolling = function(){
-    clearInterval(this.intervalID);
+    this.stopRolling = function(){
+        clearInterval(this.intervalID);
+        this.showLucky();
+    };
 
-    db.transaction(function(tx) {
-      tx.executeSql("UPDATE names SET status=1 WHERE name = ?", [$('#random').text()], function (tx, results) {
-        this.showLuckyNames();
-        this.showAllTickets();
-      });
-    });
-  };
+    this.showLucky = function(){
+        var luckyname = $("#lucky-name").text();
+        $("#lucky-list").append('<a>'+luckyname+"</a>");
 
-  return this;
+        this.localdata.splice(this.luckyindex, 1);
+    }
+
+    this._bindUI = function(){
+
+        // bind button
+        var trigger = document.querySelector('#go')
+        trigger.innerHTML = trigger.getAttribute('data-text-start');
+        trigger.addEventListener('click', go, false);
+
+        function go() {
+            if (trigger.getAttribute('data-action') === 'start') {
+              trigger.setAttribute('data-action', 'stop');
+              trigger.innerHTML = trigger.getAttribute('data-text-stop');
+              startRolling();
+            }
+            else {
+              trigger.setAttribute('data-action', 'start');
+              trigger.innerHTML = trigger.getAttribute('data-text-start');
+              stopRolling();
+            };
+        };
+
+        // bind keydown
+        document.addEventListener('keydown', function(ev) {
+            if (ev.keyCode == '32') {
+              go()
+            }
+            else if (ev.keyCode == '27') {
+              that.moveLucky()
+            }
+        }, false);
+    };
+
+    return this
 })();
 
 $(function(){
-
-  $('#lucky-draw').height(Math.max($(window).height(), $('#lucky-draw').height()));
-
-  lucky.initDB();
-  lucky.showLuckyNames();
-  lucky.showAllTickets();
-
-  //点击body时，隐藏日期控件
-  $('body').bind('keydown', function(e){
-    var k = e.which || e.keyCode;
-    if(k == 32){
-      $('#lucky-button').click();
-      return false;
-    }
-  });
-
-  $('body').delegate('#import-button', 'click', function(event){
-    var list_str = $('#data-source').val();
-    var names = [];
-    var list_lines = list_str.split("\n");
-    for (var i = 0; i < list_lines.length; i++) {
-      var name = $.trim(list_lines[i]);
-      if (name != "") names.push(name);
-    }
-    lucky.import_data(names);
-    lucky.showAllTickets();
-  });
-
-  $('body').delegate('#clear-data-button', 'click', function(event){
-    lucky.clearDB();
-    lucky.showLuckyNames();
-    lucky.showAllTickets();
-  });
-
-  $('#lucky-button').toggle(
-    function(){
-      $(this).val('停 止');
-      lucky.startRolling();
-    },
-    function(){
-      $(this).val('开 始');
-      lucky.stopRolling();
-    }
-  );
-
-});
-
-
+    lucky.init(data)
+})

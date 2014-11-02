@@ -2,73 +2,146 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-
-    <title>Lucky</title>
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/application.css">
+    <title>PyCon 2014 Lucky</title>
+    
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-costom.min.css"> -->
 
     <script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="js/lib/unslider.min.js"></script>
     <script type="text/javascript" src="js/lib/rand.js"></script>
-
-    <script type="text/javascript" src="js/application.js"></script>
+    
   </head>
   <body>
 
-    <div class="nav">
-      <div class="container">
-        <!-- <a href="/" class="main">Lucky</a> -->
-        <nav>
-          <!-- <a href="/" class="">Home</a>
-          <a href="/about-us/" class="">About us</a> -->
-        </nav>
-        <a class="main"><img src="http://pycon.b0.upaiyun.com/images/logo_s.png" />PyCon China 2012</a>
+      <div class="nav">
+        <div class="header">
+          <img src="./images/pycon_logo.png" /><a class="main">PyCon China 2014</a>
+        </div>
       </div>
-    </div>
 
-    <div id="lucky-draw">
       <div class="container">
-        <div id="random-container">
-          <h1 id="random">开始抽奖啦！<h1>
+        <div class="lucky">
+          <div id="lucky-name">张三</div>
+          <button id="go" data-text-start="按空格开始" data-text-stop="按空格停止" data-action="start"></button>
+        </div>
+        <div id="lucky-list"></div>
+
+        <div class="sponsors">
+
+          <div class="sponsors-top">
+            <ul>
+              <li>
+                <p>钻石</p>
+                <img src="./images/sponsors/google_logo_diamond.png">
+              </li>
+              <li>
+                <p>合作伙伴</p>
+                <img src="./images/sponsors/sf_logo_partner.png">
+              </li>
+              <li>
+                <p>白金</p>
+                <img src="./images/sponsors/jiankongbao_logo_platinum.png">
+                <img src="./images/sponsors/speedycloud_logo_platinum.png">
+              </li>
+            </ul>
+          </div>
+          <table>
+           <tr>
+            <td background="./images/sponsors/jiankongbao_logo_platinum.png" ></td>
+           </tr>
+          </table>
+          <div class="sponsors-end">
+            <ul>
+              <li>
+                <p>黄金</p>
+              </li>
+              <li>
+                <p>白银</p>
+              </li>
+              <li>
+                <p>青铜</p>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div id="actions">
-          <input id="lucky-button" type="button" value="开 始" />
-        </div>
-
-        <ul id="sponsors">
-            <li><img src="images/r1.png"/></li>
-            <li><img src="images/r2.png"/></li>
-            <li><img src="images/r3.png"/></li>
-            <li><img src="images/r4.png"/></li>
-            <li><img src="images/r5.png"/></li>
-            <li><img src="images/r6.png"/></li>
-        </ul>
-
       </div>
-    </div>
 
 
-
-    <div class="container">
-      <h2 class="page-title">中奖名单</h2>
-      <ul id="lucky-names"></ul>
-    </div>
-
-    <div class="container import">
-      <h2 class="page-title">导入数据</h2>
-      <textarea id="data-source"></textarea>
-      <div>
-        <button id="import-button"  class="btn btn-success" href="#">导入数据</button>
-        <button id="clear-data-button"  class="btn btn-success" href="#">清除数据</button>
-      </div>
-    </div>
-
-    <div class="container">
-      <table id="tickets">
-        <tbody></tbody>
-      </table>
-    </div>
-    <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
-    <script type="text/javascript">$(document).ready(function() { $('#sponsors').cycle({fx: 'fade',timeout:3000});});</script>
+    <script type="text/javascript" src="js/application.js"></script>
   </body>
 </html>
+
+    <!-- <div class="container">
+    
+      <div class="row">
+        <div class="center-block">
+        <div class="logo">
+          <img src="./images/pycon_logo.png" />
+          <a>PyCon Lucky Go!!!</a>
+        </div>
+      </div>
+      </div>
+    
+      
+      <div class="lucky-main">
+        <button id="go" data-text-start="按空格开始" data-text-stop="按空格停止" data-action="start">
+          
+        </button>
+      </div>
+       
+    
+    <div class="sponsors row">
+      <div class="row">
+      <div class="sponsors-diamond col-md-2">
+        <ul>
+          <li><img src="./images/sponsors/google_logo_diamond.png"></li>
+        </ul>
+      </div>
+      <div class="sponsors-partner col-md-2">
+        <ul>
+          <li><img src="./images/sponsors/sf_logo_partner.png"></li>
+        </ul>
+      </div>
+      </div>
+      <div class="row">
+      <div class="sponsors-platinum col-md-2">
+        <ul>
+          <li><img src="./images/sponsors/jiankongbao_logo_platinum.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/speedycloud_logo_platinum.png" class="img-responsive" alt="Responsive image"></li>
+        </ul> 
+      </div>
+      <div class="sponsors-gold col-md-2">
+        <ul>
+          <li><img src="./images/sponsors/books_hz_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/cmcm_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/csdn_logo_gold.gif" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/DeepGlint_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/douban_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/gitcafe_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/knownsec_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/qiniu_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/seeed_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/turingbook_logo_gold.jpg" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/upyun_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+        </ul>
+      </div>
+      <div class="sponsors-silver col-md-2">
+        <ul>
+          <li><img src="./images/sponsors/coding_logo_silver.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/vpncloud_logo_silver.png" class="img-responsive" alt="Responsive image"></li>
+        </ul>
+      </div>
+      <div class="sponsors-bronze col-md-2">
+        <ul>
+          <li><img src="./images/sponsors/duitang_logo_bronze.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/modou_logo_bronze.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/ptpress_logo_bronze.png" class="img-responsive" alt="Responsive image"></li>
+          <li><img src="./images/sponsors/qisense_logo_bronze.png" class="img-responsive" alt="Responsive image"></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+    </div> -->
+
