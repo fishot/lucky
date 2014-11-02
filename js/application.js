@@ -40,7 +40,7 @@ var lucky = (function(){
 
     this.showLucky = function(){
         var luckyname = $("#lucky-name").text();
-        $("#lucky-list").append('<a>'+luckyname+"</a>");
+        $("#lucky-list").append('<span>'+luckyname+"</span>");
 
         this.localdata.splice(this.luckyindex, 1);
     }
@@ -81,4 +81,6 @@ var lucky = (function(){
 
 $(function(){
     lucky.init(data)
+
+    $("#gold").unslider();
 })
