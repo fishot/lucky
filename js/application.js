@@ -79,12 +79,25 @@ var lucky = (function(){
 
 $(function(){
     lucky.init(data);
-    $("#diamond").unslider();
+	$(".sponsors .unslider").unslider({
+        speed: 500,
+        delay: 1500
+    });
+	//点击变色
+	$("#lucky-list").on("click" ,"span", function(){
+		var $self = $(this);
+		$(this).addClass("red")
+				.siblings().removeClass("red");
+	});
+    /*$("#diamond").unslider({
+		complete: function(){
+		}
+	});
     $("#platinum").unslider();
     $("#gold").unslider();
     $("#silver").unslider();
     $("#bronze").unslider();
-    $("#partner").unslider();
+    $("#partner").unslider();*/
     
     
 

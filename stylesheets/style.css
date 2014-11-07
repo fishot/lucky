@@ -99,8 +99,14 @@ border: 1px solid #3079ed;
   background-color: #d9edf7;
   border-color: #85c5e5;
   display: inline-block;
+  cursor: pointer;
 }
-.row-first {
+#lucky-list span.red {
+  color: #BB5708;
+  background-color: #FFE2DA;
+  border-color: #FFA498;
+}
+/*.row-first {
   width: auto;
   height: 150px;
 }
@@ -119,7 +125,37 @@ border: 1px solid #3079ed;
 
 .fi a,.se a,.th a {
   margin: 0 133px auto;
+}*/
+.row {
+  width: auto;
+  height: 150px;
 }
+
+.row > div {
+   width: 33.333%;
+   float: left;
+   text-align: center;
+}
+.row > div a {
+	display: block;
+	margin: 0 10px;
+	border-right: 1px solid #C0C0C0;
+	border-bottom: 1px solid #C0C0C0;
+}
+.row > div  > div {
+   padding: 0px 10px 10px 0px;
+}
+.row > div  ul{
+   padding:0;
+}
+.row > div  li{
+   margin: 0; 
+   padding:0; 
+   list-style-type: none;
+}
+
+
+
 #go {
   width: 200px;
   height: 50px;
