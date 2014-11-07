@@ -16,6 +16,26 @@ Lucky受到现场:
 - Mac OS or Win7/8
 - Chrome
 
+## 目录
+
+```
+lucky
+|____19wu_data.csv      //19wu导出数据
+|____19wu2lucky.py      //生成数据工具,针对19wu数据
+|____js
+| |____application.js   // 主要功能js
+| |____luckydata.js     // 主要数据js来自19wu2lucky.py
+| |____lib
+| | |____jquery-1.8.0.min.js
+| | |____rand.js        // 主要随机算法
+| | |____unslider.min.js
+|____stylesheets
+| |____style.css        //主要样式文件
+|____images             // 二次处理过得logos
+| |____....png
+|____README.md
+```
+
 ## 使用说明
 
 - 使用`19wu2lucky.py`生成抽奖数据,一定要在第一步进行!否则没有数据,界面不能工作.
