@@ -41,7 +41,7 @@ border: 1px solid #3079ed;
     line-height: 50px;
     z-index: 999;
     background-color: #E0E0E0;
-    padding: 12px 0px;
+    padding: 7px 0px;
     border-bottom: 1px solid #C5C5C5;
 }
 
@@ -68,7 +68,7 @@ border: 1px solid #3079ed;
 
 .container {
   width: 800px;
-  margin: 100px auto 20px auto;
+  margin: 80px auto 20px auto;
 }
 
 .lucky {
@@ -82,7 +82,7 @@ border: 1px solid #3079ed;
 
 #lucky-list {
   width: 800px;
-  height: 200px;
+  height: 100px;
   margin: 0px auto;
   overflow: auto;
   word-break:break-all;
@@ -100,14 +100,25 @@ border: 1px solid #3079ed;
   border-color: #85c5e5;
   display: inline-block;
 }
+.row-first {
+  width: auto;
+  height: 150px;
+}
+
 .se {
   position: relative;
   top: -133px;
   left: 250px;
 }
 
-.fi .se a{
-  margin: 0 30px auto;
+.th {
+  position: relative;
+  top: -263px;
+  left: 500px;
+}
+
+.fi a,.se a,.th a {
+  margin: 0 133px auto;
 }
 #go {
   width: 200px;
