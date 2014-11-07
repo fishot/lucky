@@ -2,9 +2,21 @@
 
 PyCon China 2014 活动抽奖工具
 
-## 使用说明
+## 写在最前
 最好在使用之前提前根据现场环境进行调试
-Lucky受到现场 屏幕/NoteBook/Browser/etc..不固定因素影响
+
+Lucky受到现场:
+- 屏幕
+- NoteBook
+- Browser
+- etc..不固定因素影响
+
+建议:
+- 4:3分辨率
+- Mac OS or Win7/8
+- Chrome
+
+## 使用说明
 
 - 使用`19wu2lucky.py`生成抽奖数据,一定要在第一步进行!否则没有数据,界面不能工作.
 
