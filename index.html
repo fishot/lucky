@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <title>PyCon 2014 Lucky</title>
     
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/carousel.css"> -->
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-costom.min.css"> -->
 
     <script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+    <!-- <script type="text/javascript" src="js/lib/carousel.js"></script> -->
     <script type="text/javascript" src="js/lib/unslider.min.js"></script>
+
     <script type="text/javascript" src="js/lib/rand.js"></script>
     
   </head>
@@ -23,23 +25,35 @@
       <div class="container">
         <div class="lucky">
           <div id="lucky-name">张三</div>
-          <button id="go"  class="btn btn-primary"data-text-start="按空格开始" data-text-stop="按空格停止" data-action="start"></button>
+          <button id="go"  class="btn btn-primary" data-text-start="按空格开始" data-text-stop="按空格停止" data-action="start"></button>
         </div>
       </div>
 
         <div id="lucky-list"></div>
 
         <div class="sponsors">
-          <div id="gold">
-            <ul>
-              <li><img src="./images/7niu.png" /></li>
-              <li><img src="./images/7gan.png" /></li>
-              <li><img src="./images/bowen.png" /></li>
-              <li><img src="./images/coding.png" /></li>
-              <li><img src="./images/csdn.png" /></li>
-              <li><img src="./images/douban.png" /></li>
-            </ul> 
-          </div>
+          <div class="row-first">
+            <div class="fi">
+              <a>gold</a>
+              <div id="gold">
+                <ul>
+                  <li><img src="./images/7niu.png" ></li>
+                  <li><img src="./images/7gan.png" ></li>
+                  <li><img src="./images/bowen.png" ></li>
+                </ul>
+              </div>
+            </div>
+            <div class="se">
+              <a>gold</a>
+              <div id="silver">
+                <ul>
+                  <li><img src="./images/coding.png" ></li>
+                  <li><img src="./images/csdn.png" ></li>
+                  <li><img src="./images/douban.png" ></li>
+                </ul>
+              </div>
+            </div>
+            </div>
         </div>
 
 
@@ -74,49 +88,49 @@
       <div class="row">
       <div class="sponsors-diamond col-md-2">
         <ul>
-          <li><img src="./images/sponsors/google_logo_diamond.png"></li>
+          <div class="item"><img src="./images/sponsors/google_logo_diamond.png"></div class="item">
         </ul>
       </div>
       <div class="sponsors-partner col-md-2">
         <ul>
-          <li><img src="./images/sponsors/sf_logo_partner.png"></li>
+          <div class="item"><img src="./images/sponsors/sf_logo_partner.png"></div class="item">
         </ul>
       </div>
       </div>
       <div class="row">
       <div class="sponsors-platinum col-md-2">
         <ul>
-          <li><img src="./images/sponsors/jiankongbao_logo_platinum.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/speedycloud_logo_platinum.png" class="img-responsive" alt="Responsive image"></li>
+          <div class="item"><img src="./images/sponsors/jiankongbao_logo_platinum.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/speedycloud_logo_platinum.png" class="img-responsive" alt="Responsive image"></div class="item">
         </ul> 
       </div>
       <div class="sponsors-gold col-md-2">
         <ul>
-          <li><img src="./images/sponsors/books_hz_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/cmcm_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/csdn_logo_gold.gif" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/DeepGlint_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/douban_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/gitcafe_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/knownsec_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/qiniu_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/seeed_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/turingbook_logo_gold.jpg" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/upyun_logo_gold.png" class="img-responsive" alt="Responsive image"></li>
+          <div class="item"><img src="./images/sponsors/books_hz_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/cmcm_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/csdn_logo_gold.gif" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/DeepGdiv class="item"nt_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/douban_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/gitcafe_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/knownsec_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/qiniu_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/seeed_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/turingbook_logo_gold.jpg" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/upyun_logo_gold.png" class="img-responsive" alt="Responsive image"></div class="item">
         </ul>
       </div>
       <div class="sponsors-silver col-md-2">
         <ul>
-          <li><img src="./images/sponsors/coding_logo_silver.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/vpncloud_logo_silver.png" class="img-responsive" alt="Responsive image"></li>
+          <div class="item"><img src="./images/sponsors/coding_logo_silver.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/vpncloud_logo_silver.png" class="img-responsive" alt="Responsive image"></div class="item">
         </ul>
       </div>
       <div class="sponsors-bronze col-md-2">
         <ul>
-          <li><img src="./images/sponsors/duitang_logo_bronze.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/modou_logo_bronze.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/ptpress_logo_bronze.png" class="img-responsive" alt="Responsive image"></li>
-          <li><img src="./images/sponsors/qisense_logo_bronze.png" class="img-responsive" alt="Responsive image"></li>
+          <div class="item"><img src="./images/sponsors/duitang_logo_bronze.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/modou_logo_bronze.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/ptpress_logo_bronze.png" class="img-responsive" alt="Responsive image"></div class="item">
+          <div class="item"><img src="./images/sponsors/qisense_logo_bronze.png" class="img-responsive" alt="Responsive image"></div class="item">
         </ul>
       </div>
       </div>

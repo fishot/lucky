@@ -1,5 +1,3 @@
- var data =  [ 'C001,123@gmail.com','C002,asd123@gmail.com','C003,7772@gmail.com','C004,asd123@gmail.com,','C005','C006,asd123@gmail.com','C007,asd123@gmail.com','C008','C009',"B001,asd123@gmail.com","B002","B003","B004,asd123@gmail.com","B005","B006",
-        "A001,123@gmail.com","A002,123@gmail.com","A003,asd123@gmail.com","A004,7772@gmail.com","A005","A006,asd123@gmail.com","A007","A008,asd123@gmail.com","A009","张三,asd123@gmail.com","李四,asd123@gmail.com","王五","孙六"]
 
 var lucky = (function(){
 
@@ -80,7 +78,18 @@ var lucky = (function(){
 })();
 
 $(function(){
-    lucky.init(data)
-
+    lucky.init(data);
     $("#gold").unslider();
+    $("#silver").unslider();
+    
+
 })
+/*$('#gold').carousel({
+        showSurrounding: true 
+        //是否显示周围的区域，不设置则默认为false，个别需要显示旁边元素显示美化效果的需求时用到，如百度相册首页就有这样的效果
+        ,reverse:true //自动动画方向，不设置则默认为向右（false），设置为true则相反
+        ,interval: 1 //自动播放的间隔时间（秒），不设置则默认是5（秒）
+        ,speed: 0.2 //滚动一次需要的时间(秒)，不设置则默认是0.6（秒）
+        ,indicatorPosition: 'top' //指示器（小圆点）的位置（top，bottom），不设置则默认是bottom
+        ,indicatorAlign: 'right' //指示器水平位置（left，center，right），不设置则默认是center
+    });*/

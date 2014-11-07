@@ -100,7 +100,15 @@ border: 1px solid #3079ed;
   border-color: #85c5e5;
   display: inline-block;
 }
+.se {
+  position: relative;
+  top: -133px;
+  left: 250px;
+}
 
+.fi .se a{
+  margin: 0 30px auto;
+}
 #go {
   width: 200px;
   height: 50px;
@@ -116,10 +124,12 @@ border: 1px solid #3079ed;
   text-align: center;
   border-top: 1px solid #e5e5e5;
 }
+
 .sponsors {
   width: 800px;
   margin: 40px auto;
 }
+
 .sponsors-top {
   width: 800px;
   height: 150px;
