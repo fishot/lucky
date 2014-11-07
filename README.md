@@ -88,9 +88,9 @@ lucky
 
 使用[unslider.js](http://www.bootcss.com/p/unslider/)轮播组件来展示logo最好不过!
 
-^.^ thx 作者!
+^.^ thx 致谢
 
-为了统一logo大小,进行人肉PS! 统一 200 x 100！舒畅！
+为了统一logo大小,进行人肉PS! 统一 200 x 100
 
 ## Ending
 
