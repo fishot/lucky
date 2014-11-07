@@ -81,14 +81,18 @@ $(function(){
     lucky.init(data);
 	$(".sponsors .unslider").unslider({
         speed: 500,
-        delay: 1500
+        delay: 3000
     });
 	//点击变色
 	$("#lucky-list").on("click" ,"span", function(){
 		var $self = $(this);
 		$(this).addClass("red")
-				.siblings().removeClass("red");
+/*				.siblings().removeClass("red");*/
 	});
+    $("#lucky-list").on("dblclick", "span", function(){
+        var $self = $(this);
+        $(this).removeClass("red");
+    });
     /*$("#diamond").unslider({
 		complete: function(){
 		}

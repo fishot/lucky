@@ -78,6 +78,7 @@ border: 1px solid #3079ed;
 
 #lucky-name {
   padding: 0 0 20px;
+  overflow: hidden;
 }
 
 #lucky-list {
