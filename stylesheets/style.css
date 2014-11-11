@@ -1,0 +1,204 @@
+body {
+  font-size: 20px;
+  font-family: 'Microsoft Yahei', "微软雅黑", Tahoma, 'Times New Roman', Arial, Helvetica, STHeiti;
+  background: #eee;
+  margin: 0;
+}
+
+.btn {
+  padding: 5px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  cursor: default;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-primary {
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,.1);
+ background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4d90fe), to(#4787ed));
+ background-image: -webkit-linear-gradient(#4d90fe 0%, #4787ed 100%);
+ background-image: -moz-linear-gradient(#4d90fe 0%, #4787ed 100%);
+ background-image: -o-linear-gradient(#4d90fe 0%, #4787ed 100%);
+ background-image: linear-gradient(#4d90fe 0%, #4787ed 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4d90fe', endColorstr='#ff4787ed', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+background-repeat: repeat-x;
+border: 1px solid #3079ed;
+}
+
+.nav {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    z-index: 999;
+    background-color: #E0E0E0;
+    padding: 7px 0px;
+    border-bottom: 1px solid #C5C5C5;
+}
+
+.header {
+  width: 800px;
+  margin: 0 auto;
+}
+.header a {
+  font-size: 30px;
+  padding-left: 150px;
+}
+
+.header img {
+  width: auto;
+  height: 50px;
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
+.masthead {
+  margin: 100px 0px 50px;
+}
+
+.container {
+  width: 800px;
+  margin: 80px auto 20px auto;
+}
+
+.lucky {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+#lucky-name {
+  padding: 0 0 20px;
+  overflow: hidden;
+}
+
+#lucky-list {
+  width: 800px;
+  height: 100px;
+  margin: 0px auto;
+  overflow: auto;
+  word-break:break-all;
+  word-wrap:break-word;
+}
+
+#lucky-list span {
+  margin: 0 5px 0 0;
+  border: 1px solid transparent;
+  padding: 0px 5px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #85c5e5;
+  display: inline-block;
+  cursor: pointer;
+}
+#lucky-list span.red {
+  color: #BB5708;
+  background-color: #FFE2DA;
+  border-color: #FFA498;
+}
+/*.row-first {
+  width: auto;
+  height: 150px;
+}
+
+.se {
+  position: relative;
+  top: -133px;
+  left: 250px;
+}
+
+.th {
+  position: relative;
+  top: -263px;
+  left: 500px;
+}
+
+.fi a,.se a,.th a {
+  margin: 0 133px auto;
+}*/
+.row {
+  width: auto;
+  height: 150px;
+}
+
+.row > div {
+   width: 33.333%;
+   float: left;
+   text-align: center;
+}
+.row > div a {
+	display: block;
+	margin: 0 10px;
+	border-right: 1px solid #C0C0C0;
+	border-bottom: 1px solid #C0C0C0;
+}
+.row > div  > div {
+   padding: 0px 10px 10px 0px;
+}
+.row > div  ul{
+   padding:0;
+}
+.row > div  li{
+   margin: 0; 
+   padding:0; 
+   list-style-type: none;
+}
+
+
+
+#go {
+  width: 200px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+  font-size: 22px;
+}
+
+.footer {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  color: #777;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+
+.sponsors {
+  width: 800px;
+  margin: 40px auto;
+}
+
+.sponsors-top {
+  width: 800px;
+  height: 150px;
+}
+
+.sponsors-top ul {
+  list-style: none;
+  padding: 0;
+  vertical-align: bottom;
+  margin: 1em 0;
+}
+.sponsors-top ul li { 
+  float:left;
+  padding: 5px;
+  width: 200px;
+  height: 50px;
+  display: inline;
+}
+.sponsors-end ul {
+  list-style: none;
+  padding: 0;
+  vertical-align: bottom;
+  margin: 20px 0;
+}
