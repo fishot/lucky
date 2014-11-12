@@ -202,3 +202,29 @@ border: 1px solid #3079ed;
   vertical-align: bottom;
   margin: 20px 0;
 }
+
+/**************************************
+ checkin
+ **************************************/
+.checkin {
+  text-align: center;
+}
+.checkin .hide{
+  display: none;
+}
+.checkin #dashboard-switch{
+  text-decoration: none;
+  font-size: 15px;
+  color: #999;
+}
+.checkin .checkin-control{
+  font-size: 32px;
+  padding: 6px;
+  line-height: 32px;
+}
+.checkin .success {
+  color: green;
+}
+.checkin .error {
+  color: red;
+}
