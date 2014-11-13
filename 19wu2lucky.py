@@ -10,7 +10,7 @@ def mklucky(csvfile):
         else:
             email = i[4]
             at = email.find("@")
-            if at:
+            if at != -1:
               if at <= 4:
                   hidden = email[0] + "***" + email[at-1:at] + email[at:]
               else:

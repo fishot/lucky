@@ -6,9 +6,20 @@ def mklucky(exportfile):
     lines = datas.readlines()[1:]
     for line in lines:
         line = line.strip("\r\n")
-        print line
+        name = line.split(",")[0]
+        email = line.split(",")[1]
+        at = email.find("@")
+        print at
+        if at != -1:
+          if at <= 4:
+              hidden = email[0] + "***" + email[at-1:at] + email[at:]
+          else:
+              hidden = email[0:2] + "***" + email[at-3:at] + email[at:]
+        else:
+          length = len(email)              
+          hidden = email[0:3] + "***" + email[length-4:length]
+        line = "%s,%s" % (name, hidden)
         lucky_data.append(line)
-    print lucky_data
     datas.close()
     f = open("./js/luckydata.js","w")
     db = "var data = ['%s']" % "','".join(lucky_data)
