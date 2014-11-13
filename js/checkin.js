@@ -143,6 +143,9 @@ $(function(){
             show_checkin_result("无效签到码", "error");
         }
     });
+    $("#clean-btn").click(function(){
+        $("#checkin-number").val("")
+    });
     $("#export-checked").click(function(){
         var length = store.size();
         var lines = ["姓名,Email"];
