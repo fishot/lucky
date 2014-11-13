@@ -19,11 +19,11 @@ if __name__ == "__main__":
     import sys
     if len(sys.argv) <= 1:
        print "               *********************************************"
-       print "               * 19wu2lucky.py                             *"
+       print "               * checkin2lucky.py                          *"
        print "               *                                           *"
        print "               *     -- PyCon China 2014 lucky data maker  *"
        print "               *                                           *"
-       print "               * Usage: python 19wu2lucky.py 19wu_data.csv *"
+       print "               * Usage: python checkin2lucky.py checked.txt*"
        print "               *                                           *"
        print "               *                   By: chen_coyote@qq.com  *"
        print "               *********************************************"
