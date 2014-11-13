@@ -145,7 +145,7 @@ $(function(){
     });
     $("#export-checked").click(function(){
         var length = store.size();
-        var lines = [];
+        var lines = ["姓名,Email"];
         for(var i = 0; i < length; i++){
             var key = store.key(i);
             if(key.search("checkin_ticket_") != 0){
