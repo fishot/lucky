@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PyCon 2014 Lucky</title>
+<link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="header">
+            <img src="./images/pycon_logo.png" /><a class="main">PyCon China 2014</a>
+        </div>
+    </div>
+    <div class="container panel">
+        <div class="top-links">
+            <a href="./index.html" class="top-link">抽奖</a>
+            <a href="./checkin.html" class="top-link">签到</a>
+            <a href="./panel.html" class="top-link">面板</a>
+        </div>
+        <h1 class="text-center">面板</h1>
+        <h2 class="section-header" data-target="#import-checkin-section">导入签到数据</h2>
+        <section id="import-checkin-section">
+            <p> 所有xls文件另存为CSV文件（格式要求见README）后，按照下面的提示导入文件。</p>
+            <p> 1. 导入普通购票数据：
+                <button class="fake-import-btn btn btn-primary" data-target="#import-tickets">导入</button>
+                <input id="import-tickets" type="file" class="hide">
+            </p>
+            <p>2. 导入个人捐赠数据：
+                <button class="fake-import-btn btn btn-primary" data-target="#import-donators">导入</button>
+                <input id="import-donators" type="file" class="hide">
+            </p>
+            <p>3. 导入赠票数据：
+                <button class="fake-import-btn btn btn-primary" data-target="#import-sponsors">导入</button>
+                <input id="import-sponsors" type="file" class="hide">
+            </p>
+        </section>
+        <h2 class="section-header" data-target="#export-checked-section">导出签到名单</h2>
+        <section id="export-checked-section">
+            <p>将已签到的用户名单按照“名字,Email”格式导出CSV文件：
+                <button id="export-checked" class="btn btn-primary">导出</button>
+            </p>
+        </section>
+        <h2 class="section-header" data-target="#export-checked-section">导入签到名单</h2>
+        <section id="import-checked-section">
+            <p>导入已签到的用户数据，按照“名字,Email”格式：
+                <button class="fake-import-btn btn btn-primary" data-target="#import-sponsors">导入</button>
+                <input id="import-checked" type="file" class="hide">
+            </p>
+        </section>
+    </div>
+</body>
+<script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="./js/utils.js"></script>
+<script type="text/javascript" src="./js/checkin.js"></script>
+</html>

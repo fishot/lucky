@@ -202,21 +202,30 @@ border: 1px solid #3079ed;
   vertical-align: bottom;
   margin: 20px 0;
 }
-
+/**************************************
+common
+ **************************************/
+.top-links {
+  text-align: center;
+}
+.top-link {
+  text-decoration: none;
+  font-size: 15px;
+  color: #999;
+  padding-right: 30px;
+}
+.hide {
+  display: none;
+}
+.text-center {
+  text-align: center;
+}
 /**************************************
  checkin
  **************************************/
 .checkin {
   text-align: center;
-}
-.checkin .hide{
-  display: none;
-}
-.checkin #dashboard-switch{
-  text-decoration: none;
-  font-size: 15px;
-  color: #999;
-}
+} 
 .checkin .checkin-control{
   font-size: 32px;
   padding: 6px;
@@ -227,4 +236,10 @@ border: 1px solid #3079ed;
 }
 .checkin .error {
   color: red;
+}
+/**************************************
+ panel
+ **************************************/
+.panel .hide{
+  display: none;
 }
