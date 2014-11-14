@@ -77,12 +77,12 @@ demo: [PyCon 2014 Lucky](http://pyconchina.github.io/lucky/checkin.html)
   + 如果没有经过签到处理,需要人工处理为csv格式`签到码,门票,姓名,Email`
   + 人工将赞助商信息填写到`export.csv` `签到码,门票`留空 且 `姓名=来源` & `Email=手机号`
   + 人工将蟒人赞助信息填写到`export.csv` `签到码,门票`留空 且 `姓名`&`Email`保持一致
-  + ```python 19wu2lucky.py export.csv```
+  + ```python 19wu2lucky.py /path/.../export.csv```
 
 - 使用`checkin2lucky.py`用checkin数据生成抽奖数据
 
   + 签到后点击导出保存`checked.txt`
-  + `checkin2lucky.py checked.txt`
+  + `checkin2lucky.py /path/.../checked.txt`
 
 ### 开始抽奖
 
@@ -102,6 +102,8 @@ demo: [PyCon 2014 Lucky](http://pyconchina.github.io/lucky/checkin.html)
 ### 鸣谢
 
 首先要感谢Beijing的志愿者[@xch](https://github.com/xch89820)&[@imbugs](https://github.com/imbugs)
+
+以及同为技术组的[@Todd Gao](https://github.com/7c00)同学
 
 随机算法依旧继承[@lxneng](https://github.com/lxneng)前辈的
 
@@ -138,6 +140,11 @@ demo: [PyCon 2014 Lucky](http://pyconchina.github.io/lucky/checkin.html)
 ^.^ thx 致谢
 
 为了统一logo大小,进行人肉PS! 统一 200 x 100
+
+### 遗憾
+
+由于任务接到时已经接近大会举行,所以准备比较仓促,很多细节优化不能够做到更好
+签到任务又是迫在眉睫,技术组应急反应迅速完成签到功能,也有部分功能不够完善.
 
 ## Ending
 
