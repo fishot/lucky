@@ -1,7 +1,7 @@
 *#
 *~
 
-.csv
+*.csv
 .python-version
 
 *.py[cod]

@@ -53,7 +53,7 @@ var lucky = (function(){
 
     this.showLucky = function(){
         var luckyname = $("#lucky-name").text();
-        $("#lucky-list").append('<span>'+luckyname+"</span>");
+        $("#lucky-list").append('<span>'+luckyname+";</span>");
 
         this.localdata.splice(this.luckyindex, 1);
     };
