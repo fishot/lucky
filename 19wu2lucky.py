@@ -8,7 +8,7 @@ def mklucky(csvfile):
         if spamReader.line_num == 1:
             continue
         else:
-            email = i[4]
+            email = i[3]
             at = email.find("@")
             if at != -1:
               if at <= 4:
@@ -18,7 +18,7 @@ def mklucky(csvfile):
             else:
               length = len(email)              
               hidden = email[0:4] + "***" + email[length-4:length]
-            lucky_str = "%s,%s" % (i[3], hidden)
+            lucky_str = "%s,%s" % (i[2], hidden)
             lucky_data.append(lucky_str)
     f = open("./js/luckydata.js","w")
     db = "var data = ['%s']" % "','".join(lucky_data)
