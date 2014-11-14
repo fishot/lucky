@@ -102,6 +102,8 @@ $(function(){
 	$("#lucky-list").on("click" ,"span", function(){
 		var $self = $(this);
 		$(this).addClass("red")
+    //alert($(this).text());
+    //$(this).text = "-"+$(this).text();
 /*				.siblings().removeClass("red");*/
 	});
     $("#lucky-list").on("dblclick", "span", function(){
