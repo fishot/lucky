@@ -103,6 +103,24 @@ border: 1px solid #3079ed;
   display: none;
 }
 
+#lucky-list span {
+  margin: 0 5px 0 0;
+  border: 1px solid transparent;
+  padding: 0px 5px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #85c5e5;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#lucky-list span.red {
+  color: #BB5708;
+  background-color: #FFE2DA;
+  border-color: #FFA498;
+}
 
 #lucky-list > div > span {
   margin: 0 5px 0 0;
