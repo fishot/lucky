@@ -102,6 +102,9 @@ lucky
 ----
 
 ## 折腾过程
+![141114-lucky-mobile-coding.jpg（JPEG 图像，480x854 像素） - 缩放 (88%)](http://pyconcn.qiniudn.com/zoomquiet/res/141114-lucky-mobile-coding.jpg?imageView2/2/h/360)
+
+有非常髙大上的移动开发情景出没!
 
 ### 鸣谢
 
@@ -132,9 +135,7 @@ lucky
 最头痛的时赞助商logo
 
 - 赞助商分级别
-
 - 不同级别赞助商多少不同
-
 - logo大小不比例统一
 
 占据将近50%来po赞助商logo
