@@ -76,9 +76,9 @@ $(function(){
         }
     };
 
-    var export_checked = function(){
+    var export_checked = function() {
         var length = store.size();
-        var lines = ["姓名,Email"];
+        var lines = ["签到码,门票,姓名,Email"];
         for(var i = 0; i < length; i++){
             var key = store.key(i);
             if(key.search("checkin_ticket_") != 0){
@@ -90,11 +90,14 @@ $(function(){
             }
             var name = ticket['name'] && ticket['name'].trim();
             var email = ticket['email'] && ticket['email'].trim();
+            var number = ticket['number'] || "number";
+            var tickets = ticket["tickets"] || "tickets";
             if(name && email){
-                lines.push(name + "," + email);
+                // 数据格式为`签到码,门票,姓名,Email`
+                lines.push([number, tickets, name, email].join(","));
             }
         }
-        console.log(lines)
+        console.log(lines);
         var blob = new Blob([lines.join("\r\n")], {
             "type" : "text/plain;charset=utf-8",
         });
@@ -104,7 +107,7 @@ $(function(){
         $("<a>").attr("href", url).attr("download",
             "checked.txt")[0].dispatchEvent(event);
         URL.revokeObjectURL(url);
-    }
+    };
 
     var load_checked = function(text_content){
 
