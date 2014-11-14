@@ -93,6 +93,7 @@ demo: [PyCon 2014 Lucky](http://pyconchina.github.io/lucky/checkin.html)
 ## 注意事项
 - 通过签到导入数据,然后进行签到,签到完成后导出结果,整合结果,再进行一步导入到抽奖工具中
 - 不通过签到,直接导入报名参会的信息到lucky,直接使用19wu2lucky.py导入即可
+- 两种方法选取一种即可
 
 ----
 
