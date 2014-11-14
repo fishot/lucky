@@ -28,7 +28,7 @@ var lucky = (function(){
     this.init = function(data){
         this.localdata = data;
         $("#lucky-name").text(this.luckyname);
-        this._bindUI();
+        this.bindUI();
     };
     this.rolling = function(){
             var i = rand(this.localdata.length+1);
@@ -58,36 +58,58 @@ var lucky = (function(){
         this.localdata.splice(this.luckyindex, 1);
     };
 
-    this._bindUI = function(){
-
-        // bind button
-        var trigger = document.querySelector('#go');
-        trigger.innerHTML = trigger.getAttribute('data-text-start');
-        trigger.addEventListener('click', go, false);
-
-        function go() {
-            if (trigger.getAttribute('data-action') === 'start') {
-              trigger.setAttribute('data-action', 'stop');
-              trigger.innerHTML = trigger.getAttribute('data-text-stop');
-              startRolling();
-            }
-            else {
-              trigger.setAttribute('data-action', 'start');
-              trigger.innerHTML = trigger.getAttribute('data-text-start');
-              stopRolling();
+    this.bindUI = function(){
+        var go = function(){
+            if(trigger.data("action") == "start") {
+                trigger.data("action", "stop").html(text_stop);
+                startRolling();
+            } else {
+                trigger.data("action", "start").html(text_start);
+                stopRolling();
             }
         }
+        var trigger = $("#go");
+        var text_start = trigger.data("text-start");
+        var text_stop = trigger.data("text-stop");
+        trigger.html(text_start).click("click", function(){
+            go();
+            trigger.blur();
+        });
+        $(document).keydown(function(e){
+            if(e.which == 32){
+                go();
+            }
+        });
 
-        // bind keydown
-        document.addEventListener('keydown', function(ev) {
-            if (ev.keyCode == '32') {
-              go();
-            }
-            else if (ev.keyCode == '27') {
-              that.moveLucky();
-            }
-        }, false);
-    };
+    }
+
+    // this._bindUI = function(){
+    //     // bind button
+    //     var trigger = document.querySelector('#go');
+    //     trigger.innerHTML = trigger.getAttribute('data-text-start');
+    //     trigger.addEventListener('click', function(){
+    //         go();
+    //         $(this).blur();
+    //     }, false);
+    //     function go() {
+    //         if (trigger.getAttribute('data-action') === 'start') {
+    //           trigger.setAttribute('data-action', 'stop');
+    //           trigger.innerHTML = trigger.getAttribute('data-text-stop');
+    //           startRolling();
+    //         }
+    //         else {
+    //           trigger.setAttribute('data-action', 'start');
+    //           trigger.innerHTML = trigger.getAttribute('data-text-start');
+    //           stopRolling();
+    //         }
+    //     }
+    //     // bind keydown
+    //     document.addEventListener('keydown', function(ev) {
+    //         if (ev.keyCode == '32') {
+    //           go();
+    //         }
+    //     }, false);
+    // };
 
     return this;
 })();
