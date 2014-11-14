@@ -243,3 +243,11 @@ common
 .panel .hide{
   display: none;
 }
+.panel .import-status.success {
+  padding-left: 20px;
+  color: green;
+}
+.panel .import-status.error {
+  padding-left: 20px;
+  color: red;
+}

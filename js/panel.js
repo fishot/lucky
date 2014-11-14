@@ -1,15 +1,27 @@
 $(function(){
 
-    var read_file = function(file, load_data_function){
+    var _status_it = function(jq, type, msg){
+        jq.removeClass("success error").addClass(type).text(msg);
+    }
+
+    var read_file = function(initiator, load_data_function){
+        var file = initiator.files[0];
         if(!file) return;
+        var status = $("." + $(initiator).attr("id") + "-status");
+        console.log(status);
         var reader = new FileReader();
         var filename = file.name;
         if (/text\/\w+/.test(file.type)) {
             reader.onload = function() {
-                load_data_function(this.result);
+                var ret = load_data_function(this.result);
+                if(ret !== null) {
+                    _status_it(status, "error", ret);
+                }
             };
             reader.readAsText(file);
-            console.log("processed " + filename);
+            _status_it(status, "success", filename + "已导入。")
+        } else {
+            _status_it(status, "error", filename + "不是文本文件!");
         }
     };
 
@@ -17,7 +29,7 @@ $(function(){
         var lines = text_content.split("\r\n");
         var FORMAT = "姓名,邮件,昵称"; // 数据格式
         if(lines.length < 1 || lines[0].trim() != FORMAT){
-            console.error("文件格式错误");
+            return "格式错误：不是'姓名,邮件,昵称'";
         }
         var donator_emails = []
         for(var i = 1; i < lines.length; i++){
@@ -28,13 +40,14 @@ $(function(){
             }
         }
         store.set("checkin_donator_emails", donator_emails.join("|"));
+        return null;
     };
 
     var load_sponsors = function(text_content){
         var lines = text_content.split("\r\n");
         var FORMAT = "手机号,来源,计划参会城市"; // 数据格式
         if(lines.length < 1 || lines[0].trim() != FORMAT){
-            console.error("文件格式错误");
+           return "文件格式错误：不是'手机号,来源,计划参会城市'";
         }
         for(var i = 1; i < lines.length; i++){
             var parts = lines[i].trim().split(",");
@@ -51,13 +64,14 @@ $(function(){
                 store.set("checkin_ticket_" + number, ticket);
             }
         }
+        return null;
     };
 
     var load_tickets = function(text_content){
         var lines = text_content.split("\r\n");
         var FORMAT = "签到码,门票,姓名,Email"; // 数据格式
         if(lines.length < 1 || lines[0].trim() != FORMAT){
-            console.error("文件格式错误");
+            return "格式错误：不是'签到码,门票,姓名,Email'";
         }
         for(var i = 1; i < lines.length; i++){
             var parts = lines[i].trim().split(",");
@@ -74,6 +88,7 @@ $(function(){
                 store.set("checkin_ticket_" + number, ticket);
             }
         }
+        return null;
     };
 
     var export_checked = function() {
@@ -110,12 +125,26 @@ $(function(){
     };
 
     var load_checked = function(text_content){
-
+        var lines = text_content.split("\r\n");
+        var FORMAT = "签到码,门票,姓名,Email"; // 数据格式
+        if(lines.length < 1 || lines[0].trim() != FORMAT){
+            return "格式错误：不是'签到码,门票,姓名,Email'";
+        }
+        var checked_guys = [];
+        for(var i = 1; i < lines.length; i++){
+            var parts = lines[i].trim().split(",");
+            var name = parts[2];
+            var email = parts[3];
+            checked_guys.push(name + "(" + email + ")")
+        }
+        store.set("checked_guys", checked_guys);
+        return null;
     };
 
-    $("#import-donators").change(function() { read_file(this.files[0], load_donators); });
-    $("#import-tickets").change(function() { read_file(this.files[0], load_tickets); });
-    $("#import-sponsors").change(function() { read_file(this.files[0], load_sponsors); });
+    $("#import-donators").change(function() { read_file(this, load_donators); });
+    $("#import-tickets").change(function() { read_file(this, load_tickets); });
+    $("#import-sponsors").change(function() { read_file(this, load_sponsors); });
+    $("#import-checked").change(function(){ read_file(this, load_checked); });
     $(".fake-import-btn").click(function() { $($(this).attr("data-target")).click(); });
     $("#export-checked").click(function() { export_checked() });
 });
