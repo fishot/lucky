@@ -13,7 +13,7 @@
     </div>
     <div class="container panel">
         <div class="top-links">
-            <a href="./index.html" class="top-link">抽奖</a>
+            <a href="./lucky.html" class="top-link">抽奖</a>
             <a href="./checkin.html" class="top-link">签到</a>
             <a href="./panel.html" class="top-link">面板</a>
         </div>
@@ -50,6 +50,12 @@
                 <button class="fake-import-btn btn btn-primary" data-target="#import-checked">导入</button>
                 <input id="import-checked" type="file" class="hide">
                 <span class="import-status import-checked-status"></span>
+            </p>
+        </section>
+        <hr>
+        <section>
+            <p>正式使用之前，请先清除数据:
+                <button class="btn btn-danger" onclick="if(confirm('危险！确认将删除所有本地数据！')){localStorage.clear()}">清除</button>
             </p>
         </section>
     </div>
