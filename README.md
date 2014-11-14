@@ -77,12 +77,12 @@ demo: [PyCon 2014 Lucky](http://pyconchina.github.io/lucky/checkin.html)
   + 如果没有经过签到处理,需要人工处理为csv格式`签到码,门票,姓名,Email`
   + 人工将赞助商信息填写到`export.csv` `签到码,门票`留空 且 `姓名=来源` & `Email=手机号`
   + 人工将蟒人赞助信息填写到`export.csv` `签到码,门票`留空 且 `姓名`&`Email`保持一致
-  + ```python 19wu2lucky.py export.csv```
+  + ```python 19wu2lucky.py /path/.../export.csv```
 
 - 使用`checkin2lucky.py`用checkin数据生成抽奖数据
 
   + 签到后点击导出保存`checked.txt`
-  + `checkin2lucky.py checked.txt`
+  + `checkin2lucky.py /path/.../checked.txt`
 
 ### 开始抽奖
 
