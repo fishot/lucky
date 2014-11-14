@@ -38,6 +38,8 @@ lucky
 
 ## 签到工具说明
 
+demo: [PyCon 2014 Lucky](http://pyconchina.github.io/lucky/checkin.html)
+
 ### 导入数据
 
 
