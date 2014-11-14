@@ -18,7 +18,7 @@ def mklucky(csvfile):
             else:
               length = len(email)              
               hidden = email[0:4] + "***" + email[length-4:length]
-            lucky_str = "%s,%s" % (i[2], hidden)
+            lucky_str = "%s,%s,%s" % (i[2], hidden, i[3])
             lucky_data.append(lucky_str)
     f = open("./js/luckydata.js","w")
     db = "var data = ['%s']" % "','".join(lucky_data)

@@ -71,6 +71,10 @@ border: 1px solid #3079ed;
   margin: 80px auto 20px auto;
 }
 
+/**************************************
+ lucky
+ **************************************/
+
 .lucky {
   text-align: center;
   font-size: 2.5em;
@@ -89,8 +93,12 @@ border: 1px solid #3079ed;
   word-break:break-all;
   word-wrap:break-word;
 }
+#lucky-list .hidden {
+  display: none;
+}
 
-#lucky-list span {
+
+#lucky-list > div > span {
   margin: 0 5px 0 0;
   border: 1px solid transparent;
   padding: 0px 5px;
@@ -102,7 +110,8 @@ border: 1px solid #3079ed;
   display: inline-block;
   cursor: pointer;
 }
-#lucky-list span.red {
+
+#lucky-list > div > span.red {
   color: #BB5708;
   background-color: #FFE2DA;
   border-color: #FFA498;
@@ -163,6 +172,16 @@ border: 1px solid #3079ed;
   display: block;
   margin: 0 auto;
   font-size: 22px;
+}
+#ranking {
+  margin: 0,auto;
+}
+
+#ranking a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #999;
+  padding-right: 30px;
 }
 
 .footer {

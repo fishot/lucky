@@ -18,28 +18,41 @@ var status_to_string = function(status){
   }
 }
 
+var listShow = function(id) {
+    $("#lucky-list .isShow").removeClass("isShow").addClass("hidden");
+    $(id).removeClass("hidden").addClass("isShow");
+}
+
+
+
 var lucky = (function(){
     this.speed = 50;
     this.intervalID;
     this.localdata = "";
     this.luckyindex = 0;
     this.luckyname = "开始抽奖";
+    this.luckylist = []
 
     this.init = function(data){
         this.localdata = data;
+        store.set("lucky_guy", this.luckylist);
         $("#lucky-name").text(this.luckyname);
-        this.bindUI();
+        this._bindUI();
     };
 
     this.rolling = function(){
-        var i = rand(this.localdata.length+1);
-        var name = this.localdata[i-1];
-        this.luckyindex = i-1;
-        this.luckyname = name;
-        $("#lucky-name").text(name);
+            var i = rand(this.localdata.length+1);
+            var name = this.localdata[i-1];
+
+            this.luckyindex = i-1;
+            this.luckyname = name;
+
+            showname = name.split(",")
+            $("#lucky-name").text(showname[0]+","+showname[1]);
     };
 
     this.startRolling = function(){
+        
         this.intervalID = setInterval(this.rolling, this.speed);
     };
 
@@ -50,33 +63,43 @@ var lucky = (function(){
 
     this.showLucky = function(){
         var luckyname = $("#lucky-name").text();
-        $("#lucky-list").append('<span>'+luckyname+";</span>");
-
+        $("#lucky-list .isShow").append('<span>'+luckyname+";</span>");
+        console.log(luckyname,this.luckyname)
+        var ranking = $("#lucky-list .isShow").attr("id")
+        this.luckylist.push(this.luckyname + "," + ranking)
+        store.set("lucky_guy", this.luckylist);
         this.localdata.splice(this.luckyindex, 1);
     };
 
-    this.bindUI = function(){
-        var go = function(){
-            if(trigger.data("action") == "start") {
-                trigger.data("action", "stop").html(text_stop);
-                startRolling();
-            } else {
-                trigger.data("action", "start").html(text_start);
-                stopRolling();
+    this._bindUI = function(){
+
+        // bind button
+        var trigger = document.querySelector('#go');
+        trigger.innerHTML = trigger.getAttribute('data-text-start');
+        trigger.addEventListener('click', go, false);
+
+        function go() {
+            if (trigger.getAttribute('data-action') === 'start') {
+              trigger.setAttribute('data-action', 'stop');
+              trigger.innerHTML = trigger.getAttribute('data-text-stop');
+              startRolling();
+            }
+            else {
+              trigger.setAttribute('data-action', 'start');
+              trigger.innerHTML = trigger.getAttribute('data-text-start');
+              stopRolling();
             }
         }
-        var trigger = $("#go");
-        var text_start = trigger.data("text-start");
-        var text_stop = trigger.data("text-stop");
-        trigger.html(text_start).click("click", function(){
-            go();
-            trigger.blur();
-        });
-        $(document).keydown(function(e){
-            if(e.which == 32){
-                go();
+
+        // bind keydown
+        document.addEventListener('keydown', function(ev) {
+            if (ev.keyCode == '32') {
+              go();
             }
-        });
+            else if (ev.keyCode == '27') {
+              that.moveLucky();
+            }
+        }, false);
     };
 
     return this;
@@ -88,13 +111,29 @@ $(function(){
         speed: 500,
         delay: 3000
     });
-	//点击变色
+
 	$("#lucky-list").on("click" ,"span", function(){
 		var $self = $(this);
 		$(this).addClass("red")
 	});
+
     $("#lucky-list").on("dblclick", "span", function(){
         var $self = $(this);
         $(this).removeClass("red");
     });
+
+    $("#exportlucky").on("click",function(){
+        exportdata = store.get("lucky_guy")
+        var blob = new Blob([exportdata.join("\r\n")], {
+            "type" : "text/plain;charset=utf-8",
+        });
+        var url = URL.createObjectURL(blob);
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false);
+        $("<a>").attr("href", url).attr("download",
+            "luckyguys.txt")[0].dispatchEvent(event);
+        URL.revokeObjectURL(url);
+    });
+
 });
+

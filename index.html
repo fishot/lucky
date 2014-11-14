@@ -17,86 +17,100 @@
         <div class="lucky">
           <div id="lucky-name">张三</div>
           <button id="go"  class="btn btn-primary" data-text-start="按空格开始" data-text-stop="按空格停止" data-action="start"></button>
+          <div id="ranking">
+            <a href="javascript:void(0)" onclick="listShow(biggest)">特等奖</a>
+            <a href="javascript:void(0)" onclick="listShow(first)">一等奖</a>
+            <a href="javascript:void(0)" onclick="listShow(second)">二等奖</a>
+            <a href="javascript:void(0)" onclick="listShow(third)">三等奖</a>
+            <a href="#" id="exportlucky">导出结果</a>
+          </div>
         </div>
-      </div>
+      
 
-      <div id="lucky-list"></div>
+        <div id="lucky-list">
+          <div id="biggest" class="hidden"></div>
+          <div id="first" class="hidden"></div>
+          <div id="second" class="hidden"></div>
+          <div id="third" class="isShow"></div>
+        </div>
 
-      <div class="sponsors">
-        <div class="row">
-          <div class="fi">
-            <a style="background: #fff;">钻石</a>
-            <div id="diamond" class="unslider">
-              <ul>
-                <li><img src="./images/google.png" ></li>
-              </ul>
+        <div class="sponsors" id="sponsors">
+          <div class="row">
+            <div class="fi">
+              <a style="background: #fff;">钻石</a>
+              <div id="diamond" class="unslider">
+                <ul>
+                  <li><img src="./images/google.png" ></li>
+                </ul>
+              </div>
+            </div>
+            <div class="se">
+              <a style="background: #fafafa;">白金</a>
+              <div id="platinum" class="unslider">
+                <ul>
+                  <li><img src="./images/speedcloud.png" ></li>
+                  <li><img src="./images/jiankongbao.png" ></li>
+                </ul>
+              </div>
+            </div>
+            <div class="th">
+              <a style="background: #ffecb3;">黄金</a>
+              <div id="gold" class="unslider">
+                <ul>
+                  <li><img src="./images/jinshan.png"></li>
+                  <li><img src="./images/gitcafe.png"></li>
+                  <li><img src="./images/douban.png"></li>
+                  <li><img src="./images/csdn.png"></li>
+                  <li><img src="./images/7niu.png"></li>
+                  <li><img src="./images/upyun.png"></li>
+                  <li><img src="./images/deepglint.png"></li>
+                  <li><img src="./images/knownsec.png"></li>
+                  <li><img src="./images/seeedstudio.png"></li>
+                  <li><img src="./images/ituring.png"></li>
+                  <li><img src="./images/huazhang.png"></li>
+                  <li><img src="./images/pdrjy.png" ></li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="se">
-            <a style="background: #fafafa;">白金</a>
-            <div id="platinum" class="unslider">
-              <ul>
-                <li><img src="./images/speedcloud.png" ></li>
-                <li><img src="./images/jiankongbao.png" ></li>
-              </ul>
+          <div class="row">
+            <div class="fi">
+              <a style="background: #e0e0e0;">白银</a>
+              <div id="silver" class="unslider">
+                <ul>
+                  <li><img src="./images/coding.png"></li>
+                  <li><img src="./images/vpncloud.png"></li>
+                  <li><img src="./images/bowen.png"></li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="th">
-            <a style="background: #ffecb3;">黄金</a>
-            <div id="gold" class="unslider">
-              <ul>
-                <li><img src="./images/jinshan.png"></li>
-                <li><img src="./images/gitcafe.png"></li>
-                <li><img src="./images/douban.png"></li>
-                <li><img src="./images/csdn.png"></li>
-                <li><img src="./images/7niu.png"></li>
-                <li><img src="./images/upyun.png"></li>
-                <li><img src="./images/deepglint.png"></li>
-                <li><img src="./images/knownsec.png"></li>
-                <li><img src="./images/seeedstudio.png"></li>
-                <li><img src="./images/ituring.png"></li>
-                <li><img src="./images/huazhang.png"></li>
-                <li><img src="./images/pdrjy.png" ></li>
-              </ul>
+            <div class="se">
+              <a style="background: #99CCCC;">青铜</a>
+              <div id="bronze" class="unslider">
+                <ul>
+                  <li><img src="./images/duitang.png" ></li>
+                  <li><img src="./images/modou.png" ></li>
+                  <li><img src="./images/rmyd.png" ></li>
+                  <li><img src="./images/7gan.png" ></li>
+                  <li><img src="./images/yuepod.png" ></li>
+                  <li><img src="./images/ucloud.png" ></li>
+                  <li><img src="./images/jkxy.png" ></li>
+                </ul>
+              </div>
+            </div>
+            <div class="th">
+              <a style="background: #99FFCC;">合作伙伴</a>
+              <div id="partner" class="unslider">
+                <ul>
+                  <li><img src="./images/sf.png" ></li>
+                  <li><img src="./images/zgkjw.png" ></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="fi">
-            <a style="background: #e0e0e0;">白银</a>
-            <div id="silver" class="unslider">
-              <ul>
-                <li><img src="./images/coding.png"></li>
-                <li><img src="./images/vpncloud.png"></li>
-                <li><img src="./images/bowen.png"></li>
-              </ul>
-            </div>
-          </div>
-          <div class="se">
-            <a style="background: #99CCCC;">青铜</a>
-            <div id="bronze" class="unslider">
-              <ul>
-                <li><img src="./images/duitang.png" ></li>
-                <li><img src="./images/modou.png" ></li>
-                <li><img src="./images/rmyd.png" ></li>
-                <li><img src="./images/7gan.png" ></li>
-                <li><img src="./images/yuepod.png" ></li>
-                <li><img src="./images/ucloud.png" ></li>
-                <li><img src="./images/jkxy.png" ></li>
-              </ul>
-            </div>
-          </div>
-          <div class="th">
-            <a style="background: #99FFCC;">合作伙伴</a>
-            <div id="partner" class="unslider">
-              <ul>
-                <li><img src="./images/sf.png" ></li>
-                <li><img src="./images/zgkjw.png" ></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+
+        
       </div>
   </body>
 
