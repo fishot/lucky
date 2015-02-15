@@ -2,6 +2,26 @@
 
 PyCon China 2014 活动抽奖工具
 
+## 开智2015春晩定制版
+
+> 150215 18:38 大妈
+
+- 使用工具 [bot4grp2wx/grpmerger.py at master - OMAutomatic / bot4grp2wx | GitLab](http://182.92.1.69:10080/omautomatic/bot4grp2wx/blob/master/grpmerger.py)
+- 合并两个群的用户
+
+```
+$ python grpmerger.py _logger/2015-02-14 OMM OMY
+wgb v15.1.22_22
+grp_a: 239
+grp_b: 327
+Raffia❄️
+_merged_grp: 503
+```
+
+
+- 输出为网页工具用的数据集: [luckydata.js](https://github.com/OpenMindClub/lucky/blob/master/js/luckydata.js)
+- 嘦检出仓库,用 Chrom 浏览器打开 `index.html` 就可用了 ;-)
+
 ## 写在最前
 最好在使用之前提前根据现场环境进行调试
 
